@@ -1,4 +1,7 @@
 enum Actions {
+    ListenToExternalAudio,
+    WatchExternalVideo,
+    IdentifyCaller,
     CallExternalApi,
     InteractWithFileSystem,
     InteractWithDatabase,
