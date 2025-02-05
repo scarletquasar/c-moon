@@ -44,7 +44,10 @@ fn main() {
 		},
 		"midday-ai" => {
 			println!("Midday AI function called with {}", args[2]);
-		}
+		},
+		"wayback-archiving" => {
+			println!("Midday AI function called with {}", args[2]);
+		},
 		_ => {
 			println!("Unknown argument with {}", args[2]);
 		}

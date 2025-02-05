@@ -10,6 +10,7 @@ enum Actions {
     FetchPassword,
     GeneratePassword,
     MiddayAi,
+    WaybackArchiving,
 }
 
 export { Actions };
