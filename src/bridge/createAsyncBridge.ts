@@ -9,7 +9,11 @@ async function createAsyncBridge(command: string, json: string): Promise<string>
 
         let timeout = setTimeout(() => {
             cleanup();
-            reject(new Error('Timeout waiting for process exit'));
+            reject(
+                new Error(
+                    'The time to live of the bridge connection reached the end without response',
+                ),
+            );
         }, BRIDGE_TTL);
 
         const cleanup = () => {
@@ -31,7 +35,7 @@ async function createAsyncBridge(command: string, json: string): Promise<string>
         const onClose = (code: number) => {
             cleanup();
             if (code !== 0) {
-                reject(new Error(`Process exited with code ${code}`));
+                reject(new Error(`The bridge connection returned the following error: ${code}`));
             } else {
                 resolve(Buffer.concat(buffers).toString('utf-8'));
             }
