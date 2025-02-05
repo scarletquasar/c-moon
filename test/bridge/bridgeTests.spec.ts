@@ -72,6 +72,37 @@ describe('Bridge testing: executing the application commands through the Rust br
         expect(existsSync(filePath)).toBe(true);
     });
 
+    it('Should execute the IO action correctly for updating a file', async () => {
+        const args = JSON.stringify({
+            method: 'create',
+            content: 'hello world',
+            type: 'file',
+            name: 'temp-create.txt',
+        });
+
+        const stdout = await runCommand(`io ${JSON.stringify(args)}`);
+        expect(stdout).toContain(`[io] Executing function with argument: ${args}`);
+        expect(stdout).toContain('[io] Command executed with success, result: {}');
+
+        const filePath = join(__dirname, '.temp', 'temp-create.txt');
+        expect(existsSync(filePath)).toBe(true);
+
+        const editArgs = JSON.stringify({
+            method: 'update',
+            content: 'hello world1',
+            type: 'file',
+            name: 'temp-create.txt',
+        });
+
+        const stdoutEdit = await runCommand(`io ${JSON.stringify(editArgs)}`);
+        expect(stdoutEdit).toContain(`[io] Executing function with argument: ${editArgs}`);
+        expect(stdoutEdit).toContain('[io] Command executed with success, result: {}');
+
+        const editedFileRaw = readFileSync('./test/bridge/.temp/temp-create.txt', 'utf-8');
+        const editedFileContent = editedFileRaw.toString();
+        expect(editedFileContent).toBe('hello world1');
+    });
+
     it('Should execute the API action correctly', async () => {
         const stdout = await runCommand('api');
         expect(stdout).toContain('[api] Executing function with argument: testArg');
