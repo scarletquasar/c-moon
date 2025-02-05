@@ -1,7 +1,7 @@
 # c-moon
 
 > [!WARNING]
-> This project is **Made in Heaven**
+> This project is **_Made in Heaven_**
 
 <img src="./repo/jjba-mih.gif">
 
