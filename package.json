@@ -5,6 +5,10 @@
     "@types/node": "^22.13.1"
   },
   "devDependencies": {
-    "mocha": "^11.1.0"
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
+    "chai": "^5.1.2",
+    "mocha": "^11.1.0",
+    "typescript": "^5.7.3"
   }
 }
