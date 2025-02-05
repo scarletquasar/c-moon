@@ -7,6 +7,9 @@ enum Actions {
     AudioResponse,
     TextResponse,
     ImageReponse,
+    FetchPassword,
+    GeneratePassword,
+    MiddayAi,
 }
 
 export { Actions };

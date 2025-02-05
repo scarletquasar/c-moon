@@ -39,6 +39,12 @@ fn main() {
 		"image-response" => {
 			println!("Image Response function called with {}", args[2]);
 		}
+		"passwords" => {
+			println!("Password function called with {}", args[2]);
+		},
+		"midday-ai" => {
+			println!("Midday AI function called with {}", args[2]);
+		}
 		_ => {
 			println!("Unknown argument with {}", args[2]);
 		}
