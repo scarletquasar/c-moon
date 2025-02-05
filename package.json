@@ -1,4 +1,7 @@
 {
   "name": "c-moon",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {
+    "@types/node": "^22.13.1"
+  }
 }
