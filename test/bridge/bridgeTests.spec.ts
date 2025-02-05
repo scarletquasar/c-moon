@@ -56,10 +56,20 @@ describe('Bridge testing: executing the application commands through the Rust br
         });
     };
 
-    it('Should execute the IO action correctly', async () => {
-        const stdout = await runCommand('io');
-        expect(stdout).toContain('[io] Executing function with argument: testArg');
+    it('Should execute the IO action correctly for creating a file', async () => {
+        const args = JSON.stringify({
+            method: 'create',
+            content: 'hello world',
+            type: 'file',
+            name: 'temp-create.txt',
+        });
+
+        const stdout = await runCommand(`io ${JSON.stringify(args)}`);
+        expect(stdout).toContain(`[io] Executing function with argument: ${args}`);
         expect(stdout).toContain('[io] Command executed with success, result: {}');
+
+        const filePath = join(__dirname, '.temp', 'temp-create.txt');
+        expect(existsSync(filePath)).toBe(true);
     });
 
     it('Should execute the API action correctly', async () => {
