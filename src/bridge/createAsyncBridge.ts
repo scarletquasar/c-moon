@@ -1,6 +1,5 @@
 import { exec, spawn } from 'node:child_process';
 import { BRIDGE_LOCATION, BRIDGE_TTL } from '../consts';
-import { join } from 'node:path';
 
 async function createAsyncBridge(
     action: string,

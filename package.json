@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "build": "npx tsx setupLib.ts",
+        "start": "npx tsx ./src/main.ts"
     },
     "dependencies": {
         "@types/node": "^22.13.1",
