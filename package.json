@@ -11,12 +11,14 @@
     "dependencies": {
         "@types/node": "^22.13.1",
         "exec-sh": "^0.4.0",
-        "microphone-stream": "^6.0.1"
+        "microphone-stream": "^6.0.1",
+        "node-microphone": "^0.1.6"
     },
     "devDependencies": {
         "@jest/globals": "^29.7.0",
         "@types/chai": "^5.0.1",
         "@types/mocha": "^10.0.10",
+        "@types/node-microphone": "^0.1.4",
         "chai": "^5.1.2",
         "ts-jest": "^29.2.5",
         "tsx": "4.19.2",
