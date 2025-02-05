@@ -10,7 +10,8 @@
     },
     "dependencies": {
         "@types/node": "^22.13.1",
-        "exec-sh": "^0.4.0"
+        "exec-sh": "^0.4.0",
+        "microphone-stream": "^6.0.1"
     },
     "devDependencies": {
         "@jest/globals": "^29.7.0",
