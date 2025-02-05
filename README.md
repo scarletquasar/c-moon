@@ -19,12 +19,10 @@ sudo apt-get install fswebcam
 
 ```
 sudo pamac build fswebcam
-
 ```
 
 ### MacOS
 
 ```
 brew install imagesnap
-
 ```
