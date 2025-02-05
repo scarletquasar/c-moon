@@ -1,4 +1,5 @@
 use std::env;
+mod io_methods;
 
 fn main() {
 	let args: Vec<String> = env::args().collect();
@@ -17,6 +18,7 @@ fn main() {
 	match args[1].as_str() {
 		"io" => {
 			println!("[io] Executing function with argument: {}", args[2]);
+			let _result = io_methods::execute_from_json(&args[2].clone());
 			println!("[io] Command executed with success, result: {}", "{}");
 		}
 		"api" => {
