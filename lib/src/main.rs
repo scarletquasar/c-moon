@@ -1,6 +1,6 @@
 use std::env;
 mod io_methods;
-
+mod api_methods;
 fn main() {
 	let args: Vec<String> = env::args().collect();
 
