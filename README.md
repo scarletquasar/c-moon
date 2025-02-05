@@ -11,12 +11,20 @@ Just a local assistant, connected to a set of LLMs that is capable of listening 
 
 ### Average Linux
 
--   sudo apt-get install fswebcam
+```
+sudo apt-get install fswebcam
+```
 
 ### Arch Linux
 
--   sudo pamac build fswebcam
+```
+sudo pamac build fswebcam
+
+```
 
 ### MacOS
 
--   brew install imagesnap
+```
+brew install imagesnap
+
+```
