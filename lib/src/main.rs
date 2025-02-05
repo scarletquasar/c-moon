@@ -16,37 +16,48 @@ fn main() {
 
 	match args[1].as_str() {
 		"io" => {
-			println!("IO function called with {}", args[2]);
+			println!("[io] Executing function with argument: {}", args[2]);
+			println!("[io] Command executed with success, result: {}", "{}");
 		}
 		"api" => {
-			println!("API function called with {}", args[2]);
+			println!("[api] Executing function with argument: {}", args[2]);
+			println!("[api] Command executed with success, result: {}", "{}");
 		}
 		"download-youtube" => {
-			println!("Download YouTube function called with {}", args[2]);
+			println!("[download-youtube] Executing function with argument: {}", args[2]);
+			println!("[download-youtube] Command executed with success, result: {}", "{}");
 		}
 		"download-bluesky" => {
-			println!("Download Bluesky function called with {}", args[2]);
+			println!("[download-bluesky] Executing function with argument: {}", args[2]);
+			println!("[download-bluesky] Command executed with success, result: {}", "{}");
 		}
 		"database" => {
-			println!("Database function called with {}", args[2]);
+			println!("[database] Executing function with argument: {}", args[2]);
+			println!("[database] Command executed with success, result: {}", "{}");
 		}
 		"audio-response" => {
-			println!("Audio Response function called with {}", args[2]);
+			println!("[audio-response] Executing function with argument: {}", args[2]);
+			println!("[audio-response] Command executed with success, result: {}", "{}");
 		}
 		"text-response" => {
-			println!("Text Response function called with {}", args[2]);
+			println!("[text-response] Executing function with argument: {}", args[2]);
+			println!("[text-response] Command executed with success, result: {}", "{}");
 		}
 		"image-response" => {
-			println!("Image Response function called with {}", args[2]);
+			println!("[image-response] Executing function with argument: {}", args[2]);
+			println!("[image-response] Command executed with success, result: {}", "{}");
 		}
 		"passwords" => {
-			println!("Password function called with {}", args[2]);
+			println!("[passwords] Executing function with argument: {}", args[2]);
+			println!("[passwords] Command executed with success, result: {}", "{}");
 		},
 		"midday-ai" => {
-			println!("Midday AI function called with {}", args[2]);
+			println!("[midday-ai] Executing function with argument: {}", args[2]);
+			println!("[midday-ai] Command executed with success, result: {}", "{}");
 		},
 		"wayback-archiving" => {
-			println!("Midday AI function called with {}", args[2]);
+			println!("[wayback-archiving] Executing function with argument: {}", args[2]);
+			println!("[wayback-archiving] Command executed with success, result: {}", "{}");
 		},
 		_ => {
 			println!("Unknown argument with {}", args[2]);

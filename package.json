@@ -1,14 +1,21 @@
 {
-  "name": "c-moon",
-  "version": "1.0.0",
-  "dependencies": {
-    "@types/node": "^22.13.1"
-  },
-  "devDependencies": {
-    "@types/chai": "^5.0.1",
-    "@types/mocha": "^10.0.10",
-    "chai": "^5.1.2",
-    "mocha": "^11.1.0",
-    "typescript": "^5.7.3"
-  }
+    "name": "c-moon",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "test": "jest"
+    },
+    "dependencies": {
+        "@types/node": "^22.13.1",
+        "exec-sh": "^0.4.0"
+    },
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "@types/chai": "^5.0.1",
+        "@types/mocha": "^10.0.10",
+        "chai": "^5.1.2",
+        "ts-jest": "^29.2.5",
+        "tsx": "4.19.2",
+        "typescript": "^5.7.3"
+    }
 }

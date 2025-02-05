@@ -1,15 +1,37 @@
 import { createAsyncBridge } from '../../src/bridge/createAsyncBridge';
-import { copyFileSync } from 'fs';
+import { copyFileSync, existsSync, readFileSync } from 'fs';
+import { describe, expect, test, beforeAll, afterAll } from '@jest/globals';
+import { mkdirSync } from 'fs';
+import { join } from 'path';
 import { exec } from 'child_process';
+import { promises as fsPromises } from 'fs';
 
-before((done) => {
-    exec('sh tests/bridge/bridgeTestsSetup.sh', (error, stdout, _) => {
-        if (error) {
-            return done(error);
-        }
-        console.log(stdout);
-        done();
+beforeAll(async () => {
+    await new Promise<void>((resolve, reject) => {
+        exec('cargo build --bin lib', { cwd: './lib' }, (error, stdout, stderr) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve();
+            }
+        });
     });
+
+    const tempDir = join(__dirname, '.temp');
+    if (!existsSync(tempDir)) {
+        mkdirSync(tempDir, { recursive: true });
+    }
+
+    const binaryName = process.platform === 'win32' ? 'lib.exe' : 'lib';
+    const sourcePath = join(__dirname, '../../lib/target/debug', binaryName);
+    copyFileSync(sourcePath, join(tempDir, binaryName));
+});
+
+afterAll(async () => {
+    const tempDir = join(__dirname, '.temp');
+    if (existsSync(tempDir)) {
+        await fsPromises.rm(tempDir, { recursive: true, force: true });
+    }
 });
 
 describe('Bridge testing: executing the application commands through the Rust bridge', () => {
