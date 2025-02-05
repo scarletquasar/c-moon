@@ -40,21 +40,8 @@ describe('Bridge testing: executing the application commands through the Rust br
         return join(__dirname, '.temp', binaryName);
     };
 
-    const runCommand = (action: string): Promise<string> => {
-        return new Promise((resolve, reject) => {
-            const binaryPath = getBinaryPath();
-            exec(
-                `${binaryPath} ${action}`,
-                { cwd: join(__dirname, '.temp') },
-                (error, stdout, _) => {
-                    if (error) {
-                        return reject(error);
-                    }
-                    resolve(stdout);
-                },
-            );
-        });
-    };
+    const runCommand = (action: string) =>
+        createAsyncBridge(action, getBinaryPath(), join(__dirname, '.temp'));
 
     it('Should execute the IO action correctly for creating a file', async () => {
         const args = JSON.stringify({
