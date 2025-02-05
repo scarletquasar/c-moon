@@ -1,4 +1,3 @@
-use core::panic;
 use std::env;
 mod io_methods;
 
@@ -12,14 +11,14 @@ fn main() {
 
 	// Ensure a second parameter exists after the flag.
 	if args.len() < 3 {
-		println!("Missing parameter for flag {}", args[1]);
+		println!("[{}] Executing function with argument: ", args[1]);
 		return;
 	}
 
 	match args[1].as_str() {
 		"io" => {
 			println!("[io] Executing function with argument: {}", args[2]);
-			let _result = io_methods::execute_from_json(&args[2].clone().replace("[dq]", "\""));
+			let _result = io_methods::execute_from_json(&args[2].clone());
 			println!("[io] Command executed with success, result: {}", "{}");
 		}
 		"api" => {

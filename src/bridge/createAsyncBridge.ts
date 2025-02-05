@@ -1,8 +1,12 @@
 import { spawn } from 'node:child_process';
 import { BRIDGE_LOCATION, BRIDGE_TTL } from '../consts';
 
-async function createAsyncBridge(command: string, json: string): Promise<string> {
-    const bridgeSpawn = spawn(BRIDGE_LOCATION, [command, json]);
+async function createAsyncBridge(
+    bridgeLocation: string,
+    command: string,
+    json: string,
+): Promise<string> {
+    const bridgeSpawn = spawn(bridgeLocation, [command, json]);
 
     return await new Promise<string>((resolve, reject) => {
         const buffers: Buffer[] = [];
@@ -24,10 +28,13 @@ async function createAsyncBridge(command: string, json: string): Promise<string>
         };
 
         const onData = (data: Buffer) => {
+            console.log('Data received:', data.toString('utf-8'));
             buffers.push(data);
         };
 
         const onError = (err: Error) => {
+            console.error('Error received:', err);
+            buffers.push(Buffer.from(err.message));
             cleanup();
             reject(err);
         };
@@ -35,7 +42,13 @@ async function createAsyncBridge(command: string, json: string): Promise<string>
         const onClose = (code: number) => {
             cleanup();
             if (code !== 0) {
-                reject(new Error(`The bridge connection returned the following error: ${code}`));
+                const lastMessage = buffers.length
+                    ? buffers[buffers.length - 1].toString('utf-8')
+                    : 'No error message received';
+                console.error(`Bridge process closed with code ${code}: ${lastMessage}`);
+                reject(
+                    new Error(`The bridge connection returned error code ${code}: ${lastMessage}`),
+                );
             } else {
                 resolve(Buffer.concat(buffers).toString('utf-8'));
             }
