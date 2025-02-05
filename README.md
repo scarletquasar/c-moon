@@ -1,7 +1,7 @@
 # c-moon
 
 > [!WARNING]
-> This project is **_Made in Heaven_**
+> This project is **_Made in Heaven_**, and designed to provide a [divine experience](https://www.youtube.com/watch?v=mi33SvaDfB4).
 
 <img src="./repo/jjba-mih.gif">
 
