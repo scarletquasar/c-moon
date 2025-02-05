@@ -1,0 +1,4 @@
+const BRIDGE_LOCATION = './lib';
+const BRIDGE_TTL = 5000;
+
+export { BRIDGE_LOCATION, BRIDGE_TTL };

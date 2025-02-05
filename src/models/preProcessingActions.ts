@@ -1,6 +1,8 @@
 enum PreProcessingActions {
     ConvertTextToAudio,
     ConvertAudioToText,
+    DetectLanguage,
+    TranslateText,
     GetVideoExpressionsContext,
     GetCurrentOpenProcesses, // Operating System
     GetCurrentOpenBrowserTabs, // Browser
