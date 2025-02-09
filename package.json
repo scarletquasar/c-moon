@@ -13,7 +13,8 @@
         "exec-sh": "^0.4.0",
         "microphone-stream": "^6.0.1",
         "node-microphone": "^0.1.6",
-        "node-webcam": "^0.8.2"
+        "node-webcam": "^0.8.2",
+        "zod": "^3.24.1"
     },
     "devDependencies": {
         "@jest/globals": "^29.7.0",

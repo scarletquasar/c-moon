@@ -8,7 +8,7 @@ import { promises as fsPromises } from 'fs';
 
 beforeAll(async () => {
     await new Promise<void>((resolve, reject) => {
-        exec('cargo build --bin lib', { cwd: './lib' }, (error, stdout, stderr) => {
+        exec('cargo build --bin lib', { cwd: './lib' }, (error, _, __) => {
             if (error) {
                 reject(error);
             } else {
