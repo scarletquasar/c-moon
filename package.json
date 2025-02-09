@@ -11,6 +11,7 @@
     "dependencies": {
         "@types/node": "^22.13.1",
         "exec-sh": "^0.4.0",
+        "fastify": "^5.2.1",
         "microphone-stream": "^6.0.1",
         "node-microphone": "^0.1.6",
         "node-webcam": "^0.8.2",
