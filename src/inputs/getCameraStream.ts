@@ -15,7 +15,7 @@ const opts = {
     verbose: true,
 } as const;
 
-async function getCameraStream(): Promise<NodeJS.WritableStream> {
+async function getCameraStream(timeChunk: number): Promise<NodeJS.WritableStream> {
     var webcam = NodeWebcam.create(opts);
     await new Promise<void>((resolve, reject) => {
         const interval = setInterval(() => {
@@ -31,7 +31,7 @@ async function getCameraStream(): Promise<NodeJS.WritableStream> {
         setTimeout(() => {
             clearInterval(interval);
             resolve();
-        }, 3000);
+        }, timeChunk);
     });
     const bufferArray = webcam.shots.map((shot) => shot.data);
     const stream = new PassThrough();
