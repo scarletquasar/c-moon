@@ -1,6 +1,7 @@
 use std::env;
 mod io_methods;
 mod api_methods;
+mod cache;
 
 #[tokio::main]
 async fn main() {
